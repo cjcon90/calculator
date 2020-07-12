@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="calc">
+        <div class="calc__screen">
+          <div class="calc__screen--previous">
+            <p class="calc__screen--previousText">10 + 20 = 30</p>
+          </div>
+          <div class="calc__screen--current">
+            <p class="calc__screen--currentText">30 * 50 =</p>
+          </div>
+        </div>
+        <div class="calc__function btn" id="reset" value="reset">
+          <p class="btn--text">C</p>
+        </div>
+        <div class="calc__function btn" id="undo" value="undo">
+          <p class="btn--text"><=</p>
+        </div>
+        <div class="calc__function btn" id="negative" value="negative">
+          <p class="btn--text">+/-</p>
+        </div>
+        <div class="calc__operate btn" id="divide" value="/">
+          <p class="btn--text">/</p>
+        </div>
+        <div class="calc__operate btn" id="multiply" value="*">
+          <p class="btn--text">x</p>
+        </div>
+        <div class="calc__operate btn" id="subtract" value="-">
+          <p class="btn--text">-</p>
+        </div>
+        <div class="calc__operate btn" id="add" value="+">
+          <p class="btn--text">+</p>
+        </div>
+        <div class="calc__operate btn" id="equals" value="=">
+          <p class="btn--text">=</p>
+        </div>
+        <div class="calc__operate btn" id="decimal" value=".">
+          <p class="btn--text">.</p>
+        </div>
+        <div class="calc__number btn" id="nine" value="9">
+          <p class="btn--text">9</p>
+        </div>
+        <div class="calc__number btn" id="eight" value="8">
+          <p class="btn--text">8</p>
+        </div>
+        <div class="calc__number btn" id="seven" value="7">
+          <p class="btn--text">7</p>
+        </div>
+        <div class="calc__number btn" id="six" value="6">
+          <p class="btn--text">6</p>
+        </div>
+        <div class="calc__number btn" id="five" value="5">
+          <p class="btn--text">5</p>
+        </div>
+        <div class="calc__number btn" id="four" value="4">
+          <p class="btn--text">4</p>
+        </div>
+        <div class="calc__number btn" id="three" value="3">
+          <p class="btn--text">3</p>
+        </div>
+        <div class="calc__number btn" id="two" value="2">
+          <p class="btn--text">2</p>
+        </div>
+        <div class="calc__number btn" id="one" value="1">
+          <p class="btn--text">1</p>
+        </div>
+        <div class="calc__number btn" id="zero" value="0">
+          <p class="btn--text">0</p>
+        </div>
+      </div>
+    </main>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
