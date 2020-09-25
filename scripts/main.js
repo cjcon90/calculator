@@ -16,8 +16,7 @@ const calculator = new Vue({
     oldValue: null,
     logResult: [],
     logSum: [],
-    firstOp: null,
-    secondOp: null,
+    operator: null,
   },
   methods: {
     addValue(e) {
@@ -29,16 +28,19 @@ const calculator = new Vue({
       else if (this.currentValue && !this.oldValue) {
         this.oldValue = this.currentValue;
         this.currentValue = "";
-        this.firstOp = e;
+        this.operator = e;
+      } else if (this.oldValue && !this.currentValue) {
+        this.operator = e;
       } else {
         this.calc();
-        this.oldValue = this.logResult[this.logResult.length - 1];
-        this.firstOp = e;
+        this.operator = e;
       }
     },
-    equals() {},
+    equals() {
+      this.calc();
+    },
     calc() {
-      let sum = `${this.oldValue} ${this.firstOp} ${this.currentValue}`;
+      let sum = `${this.oldValue} ${this.operator} ${this.currentValue}`;
       let result = eval(sum);
       this.logResult.push(result);
       this.logSum.push(`${sum} = ${result}`);
@@ -48,9 +50,9 @@ const calculator = new Vue({
     clear() {
       this.currentValue = "";
       this.oldValue = null;
-      this.log = [];
-      this.firstOp = null;
-      this.secondOp = null;
+      this.logResult = [];
+      this.logSum = [];
+      this.operator = null;
     },
   },
 });
