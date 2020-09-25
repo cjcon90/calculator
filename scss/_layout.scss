@@ -1,24 +1,3 @@
-//mixins
-@mixin absCenter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-//variables
-$color-body: rgb(117, 117, 117);
-$color-screen: rgb(37, 12, 0);
-$color-function: rgb(150, 71, 71);
-$color-operate: rgb(168, 168, 96);
-$color-number: rgb(65, 65, 143);
-$color-digits: rgb(67, 100, 0);
-
-//base styling
-html {
-  font-size: 62.5%;
-}
-
 .calc {
   border: $color-screen 0.1rem solid;
   border-radius: 0.15rem;
@@ -34,7 +13,7 @@ html {
   justify-content: center;
   grid-template-areas:
     "screen screen screen screen"
-    "reset undo negative divide"
+    "clear undo negative divide"
     "seven eight nine multiply"
     "four five six subtract"
     "one two three add"

@@ -1,0 +1,20 @@
+//mixins
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//variables
+$color-body: rgb(117, 117, 117);
+$color-screen: rgb(37, 12, 0);
+$color-function: rgb(150, 71, 71);
+$color-operate: rgb(168, 168, 96);
+$color-number: rgb(65, 65, 143);
+$color-digits: rgb(67, 100, 0);
+
+//base styling
+html {
+  font-size: 62.5%;
+}
