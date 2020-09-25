@@ -13,8 +13,9 @@ const calculator = new Vue({
   el: "#calc",
   data: {
     currentValue: "",
-    oldValue: [],
-    log: [],
+    oldValue: null,
+    logResult: [],
+    logSum: [],
     firstOp: null,
     secondOp: null,
   },
@@ -24,25 +25,29 @@ const calculator = new Vue({
       this.currentValue = this.currentValue + e;
     },
     operate(e) {
-      if (!this.currentValue) return;
-      this.oldValue.push(+this.currentValue);
-      this.currentValue = "";
-      if (!this.firstOp) {
+      if (!this.currentValue && !this.oldValue) return;
+      else if (this.currentValue && !this.oldValue) {
+        this.oldValue = this.currentValue;
+        this.currentValue = "";
         this.firstOp = e;
       } else {
-        this.secondOp = this.firstOp;
+        this.calc();
+        this.oldValue = this.logResult[this.logResult.length - 1];
         this.firstOp = e;
-        let sum = `${this.oldValue[this.oldValue.length - 2]} ${
-          this.secondOp
-        } ${this.oldValue[this.oldValue.length - 1]}`;
-        this.oldValue.push(eval(sum));
-        this.log.push(`${sum} = ${eval(sum)}`);
       }
     },
     equals() {},
+    calc() {
+      let sum = `${this.oldValue} ${this.firstOp} ${this.currentValue}`;
+      let result = eval(sum);
+      this.logResult.push(result);
+      this.logSum.push(`${sum} = ${result}`);
+      this.currentValue = "";
+      this.oldValue = result;
+    },
     clear() {
       this.currentValue = "";
-      this.oldValue = [];
+      this.oldValue = null;
       this.log = [];
       this.firstOp = null;
       this.secondOp = null;

@@ -17,12 +17,12 @@
         <div class="calc__screen">
           <div class="calc__screen--previous">
             <p class="calc__screen--previousText">
-              {{this.log[this.log.length - 1]}}
+              {{this.logSum[this.logSum.length - 1] || ''}}
             </p>
           </div>
           <div class="calc__screen--current" id="display">
             <p class="calc__screen--currentText">
-              {{currentValue || oldValue[oldValue.length - 1] || 0}}
+              {{currentValue || oldValue || 0}}
             </p>
           </div>
         </div>
