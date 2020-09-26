@@ -3,10 +3,6 @@ const buttons = document.querySelectorAll(".btn");
 //set grid areas for buttons
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].style.gridArea = `${buttons[i].id}`;
-  buttons[i].addEventListener("click", (event) => {
-    const { target } = event;
-    console.log(target);
-  });
 }
 
 const calculator = new Vue({
@@ -62,7 +58,9 @@ const calculator = new Vue({
       this.operator = null;
     },
     negative() {
-      if (!this.currentValue && this.oldValue) {
+      if (!this.currentValue && !this.oldValue) {
+        return;
+      } else if (!this.currentValue && this.oldValue) {
         this.logResult.push(this.oldValue * -1);
         this.logSum.push(`-/+ ${this.oldValue}`);
         this.oldValue *= -1;
