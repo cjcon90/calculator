@@ -5,14 +5,15 @@ for (let i = 0; i < buttons.length; i++) {
   buttons[i].style.gridArea = `${buttons[i].id}`;
 }
 
-const calculator = new Vue({
-  el: "#calc",
-  data: {
-    currentValue: "",
-    oldValue: null,
-    logResult: [],
-    logSum: [],
-    operator: null,
+Vue.createApp({
+  data() {
+    return {
+      currentValue: "",
+      oldValue: null,
+      logResult: [],
+      logSum: [],
+      operator: null,
+    };
   },
   methods: {
     addValue(e) {
@@ -81,4 +82,4 @@ const calculator = new Vue({
       }
     },
   },
-});
+}).mount("#calc");
