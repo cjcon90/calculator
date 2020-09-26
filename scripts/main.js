@@ -62,7 +62,13 @@ const calculator = new Vue({
       this.operator = null;
     },
     negative() {
-      this.currentValue = this.currentValue * -1;
+      if (!this.currentValue && this.oldValue) {
+        this.logResult.push(this.oldValue * -1);
+        this.logSum.push(`-/+ ${this.oldValue}`);
+        this.oldValue *= -1;
+      } else {
+        this.currentValue *= -1;
+      }
     },
     undo() {
       this.currentValue = "";
@@ -73,6 +79,7 @@ const calculator = new Vue({
     decimal() {
       if (!this.currentValue.includes(".")) {
         this.currentValue = this.currentValue + ".";
+        this.oldValue = null;
       }
     },
   },
