@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" type="text/css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Calculator</title>
   </head>
@@ -16,103 +13,72 @@
       <div class="calc" id="calc">
         <div class="calc__screen">
           <div class="calc__screen--previous">
-            <p class="calc__screen--previousText">
-              {{this.logSum[this.logSum.length - 1] || ''}}
-            </p>
+            <p class="calc__screen--previousText">{{this.logSum[this.logSum.length - 1] || ''}}</p>
+          </div>
+          <div class="calc__screen--operator">
+            <p class="calc__screen--operatorText">{{operator}}</p>
           </div>
           <div class="calc__screen--current">
-            <p class="calc__screen--currentText" id="display">
-              {{currentValue || oldValue || 0}}
-            </p>
+            <p class="calc__screen--currentText" id="display">{{currentValue || oldValue || 0}}</p>
           </div>
         </div>
-        <div
-          class="calc__function btn"
-          id="clear"
-          value="clear"
-          @click="clear()"
-        >
+        <button class="calc__function btn" id="clear" value="clear" @click="clear()">
           <p class="btn--text">C</p>
-        </div>
-        <div class="calc__function btn" id="undo" value="undo" @click="undo()">
+        </button>
+        <button class="calc__function btn" id="undo" value="undo" @click="undo()">
           <p class="btn--text"><=</p>
-        </div>
-        <div
-          class="calc__function btn"
-          id="negative"
-          value="negative"
-          @click="negative()"
-        >
+        </button>
+        <button class="calc__function btn" id="negative" value="negative" @click="negative()">
           <p class="btn--text">+/-</p>
-        </div>
-        <div
-          class="calc__operate btn"
-          id="divide"
-          value="/"
-          @click="operate('/')"
-        >
+        </button>
+        <button class="calc__operate btn" id="divide" value="/" @click="operate('/')">
           <p class="btn--text">/</p>
-        </div>
-        <div
-          class="calc__operate btn"
-          id="multiply"
-          value="*"
-          @click="operate('*')"
-        >
+        </button>
+        <button class="calc__operate btn" id="multiply" value="*" @click="operate('*')">
           <p class="btn--text">x</p>
-        </div>
-        <div
-          class="calc__operate btn"
-          id="subtract"
-          value="-"
-          @click="operate('-')"
-        >
+        </button>
+        <button class="calc__operate btn" id="subtract" value="-" @click="operate('-')">
           <p class="btn--text">-</p>
-        </div>
-        <div class="calc__operate btn" id="add" value="+" @click="operate('+')">
+        </button>
+        <button class="calc__operate btn" id="add" value="+" @click="operate('+')">
           <p class="btn--text">+</p>
-        </div>
-        <div class="calc__operate btn" id="equals" value="=" @click="equals()">
+        </button>
+        <button class="calc__operate btn" id="equals" value="=" @click="equals()">
           <p class="btn--text">=</p>
-        </div>
-        <div
-          class="calc__operate btn"
-          id="decimal"
-          value="."
-          @click="decimal()"
-        >
+        </button>
+        <button class="calc__operate btn" id="decimal" value="." @click="decimal()">
           <p class="btn--text">.</p>
-        </div>
-        <div class="calc__number btn" id="nine" value="9" @click="addValue(9)">
+        </button>
+        <button class="calc__number btn" id="nine" value="9" @click="addValue(9)">
           <p class="btn--text">9</p>
-        </div>
-        <div class="calc__number btn" id="eight" value="8" @click="addValue(8)">
+        </button>
+        <button class="calc__number btn" id="eight" value="8" @click="addValue(8)">
           <p class="btn--text">8</p>
-        </div>
-        <div class="calc__number btn" id="seven" value="7" @click="addValue(7)">
+        </button>
+        <button class="calc__number btn" id="seven" value="7" @click="addValue(7)">
           <p class="btn--text">7</p>
-        </div>
-        <div class="calc__number btn" id="six" value="6" @click="addValue(6)">
+        </button>
+        <button class="calc__number btn" id="six" value="6" @click="addValue(6)">
           <p class="btn--text">6</p>
-        </div>
-        <div class="calc__number btn" id="five" value="5" @click="addValue(5)">
+        </button>
+        <button class="calc__number btn" id="five" value="5" @click="addValue(5)">
           <p class="btn--text">5</p>
-        </div>
-        <div class="calc__number btn" id="four" value="4" @click="addValue(4)">
+        </button>
+        <button class="calc__number btn" id="four" value="4" @click="addValue(4)">
           <p class="btn--text">4</p>
-        </div>
-        <div class="calc__number btn" id="three" value="3" @click="addValue(3)">
+        </button>
+        <button class="calc__number btn" id="three" value="3" @click="addValue(3)">
           <p class="btn--text">3</p>
-        </div>
-        <div class="calc__number btn" id="two" value="2" @click="addValue(2)">
+        </button>
+        <button class="calc__number btn" id="two" value="2" @click="addValue(2)">
           <p class="btn--text">2</p>
-        </div>
-        <div class="calc__number btn" id="one" value="1" @click="addValue(1)">
+        </button>
+        <button class="calc__number btn" id="one" value="1" @click="addValue(1)">
           <p class="btn--text">1</p>
-        </div>
-        <div class="calc__number btn" id="zero" value="0" @click="addValue(0)">
+        </button>
+        <button class="calc__number btn" id="zero" value="0" @click="addValue(0)">
           <p class="btn--text">0</p>
-        </div>
+        </button>
       </div>
     </main>
     <script src="scripts/main.js"></script>

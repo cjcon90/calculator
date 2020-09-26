@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll("[id]");
+const buttons = document.querySelectorAll(".btn");
 
 //set grid areas for buttons
 for (let i = 0; i < buttons.length; i++) {
@@ -25,8 +25,7 @@ const calculator = new Vue({
       // Start a new equation if no operator has been selected
       if (!this.currentValue && !this.operator) this.oldValue = null;
       //add values to current number up to a certain length
-      if (this.currentValue.length < 14)
-        this.currentValue = this.currentValue + e;
+      if (this.currentValue.length < 14) this.currentValue = this.currentValue + e;
     },
     operate(e) {
       //prevent operators when nothing entered
