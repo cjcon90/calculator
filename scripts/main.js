@@ -43,8 +43,6 @@ const calculator = new Vue({
     //method for completing equations and storing result and sum logs
     equals() {
       let sum = `${this.oldValue} ${this.operator} ${this.currentValue}`;
-      console.log({ sum });
-      console.log(eval(sum));
       let result = Math.round(eval(sum) * Math.pow(10, 4)) / Math.pow(10, 4);
       this.logResult.push(result);
       this.logSum.push(`${sum} = ${result}`);
