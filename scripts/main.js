@@ -77,7 +77,6 @@ const calculator = new Vue({
     decimal() {
       if (!this.currentValue.includes(".")) {
         this.currentValue = this.currentValue + ".";
-        this.oldValue = null;
       }
     },
   },
