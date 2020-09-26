@@ -25,7 +25,7 @@ const calculator = new Vue({
     },
     operate(e) {
       //prevent operators when nothing entered
-      if (!this.currentValue && !this.oldValue) return;
+      if (!this.currentValue && !this.oldValue) console.log("woo");
       //store first numebr for equation and select operator
       else if (this.currentValue && !this.oldValue) {
         this.oldValue = this.currentValue;
@@ -43,6 +43,8 @@ const calculator = new Vue({
     //method for completing equations and storing result and sum logs
     equals() {
       let sum = `${this.oldValue} ${this.operator} ${this.currentValue}`;
+      console.log({ sum });
+      console.log(eval(sum));
       let result = Math.round(eval(sum) * Math.pow(10, 4)) / Math.pow(10, 4);
       this.logResult.push(result);
       this.logSum.push(`${sum} = ${result}`);
@@ -75,6 +77,7 @@ const calculator = new Vue({
       this.oldValue = this.logResult[this.logResult.length - 1];
     },
     decimal() {
+      if (!this.currentValue && !this.operator) this.oldValue = null;
       if (!this.currentValue.includes(".")) {
         this.currentValue = this.currentValue + ".";
       }
