@@ -8,13 +8,28 @@
 
 //variables
 $color-body: rgb(117, 117, 117);
-$color-screen: rgb(37, 12, 0);
+$color-screen: rgb(44, 14, 0);
 $color-function: rgb(150, 71, 71);
 $color-operate: rgb(168, 168, 96);
-$color-number: rgb(65, 65, 143);
+$color-number: rgb(83, 83, 148);
 $color-digits: rgb(67, 100, 0);
 
 //base styling
 html {
   font-size: 62.5%;
+  @media only screen and (max-width: 600px) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: 380px) {
+    font-size: 45%;
+  }
+}
+body {
+  background-image: url(../images/school.jpg);
+  @media screen and (orientation: landscape) {
+    background-size: 100vw auto;
+  }
+  @media screen and (orientation: portrait) {
+    background-size: auto 100vh;
+  }
 }

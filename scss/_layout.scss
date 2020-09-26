@@ -18,6 +18,7 @@
     "four five six subtract"
     "one two three add"
     "zero zero decimal equals";
+  box-shadow: 0 0 1.5rem rgba(rgb(27, 27, 27), 0.2);
 
   &__screen {
     grid-area: screen;
@@ -26,9 +27,9 @@
     background-color: $color-screen;
     font-family: "alarm_clockregular";
     color: $color-digits;
+    padding: 2rem;
 
     &--previous {
-      padding-top: 2.5rem;
       &Text {
         text-align: left;
         font-size: 2rem;

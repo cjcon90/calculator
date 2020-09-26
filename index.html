@@ -20,8 +20,8 @@
               {{this.logSum[this.logSum.length - 1] || ''}}
             </p>
           </div>
-          <div class="calc__screen--current" id="display">
-            <p class="calc__screen--currentText">
+          <div class="calc__screen--current">
+            <p class="calc__screen--currentText" id="display">
               {{currentValue || oldValue || 0}}
             </p>
           </div>
@@ -34,10 +34,15 @@
         >
           <p class="btn--text">C</p>
         </div>
-        <div class="calc__function btn" id="undo" value="undo">
+        <div class="calc__function btn" id="undo" value="undo" @click="undo()">
           <p class="btn--text"><=</p>
         </div>
-        <div class="calc__function btn" id="negative" value="negative">
+        <div
+          class="calc__function btn"
+          id="negative"
+          value="negative"
+          @click="negative()"
+        >
           <p class="btn--text">+/-</p>
         </div>
         <div
@@ -70,7 +75,12 @@
         <div class="calc__operate btn" id="equals" value="=" @click="equals()">
           <p class="btn--text">=</p>
         </div>
-        <div class="calc__operate btn" id="decimal" value=".">
+        <div
+          class="calc__operate btn"
+          id="decimal"
+          value="."
+          @click="decimal()"
+        >
           <p class="btn--text">.</p>
         </div>
         <div class="calc__number btn" id="nine" value="9" @click="addValue(9)">

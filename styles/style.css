@@ -411,6 +411,21 @@ textarea {
 
 html {
   font-size: 62.5%; }
+  @media only screen and (max-width: 600px) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 380px) {
+    html {
+      font-size: 45%; } }
+
+body {
+  background-image: url(../images/school.jpg); }
+  @media screen and (orientation: landscape) {
+    body {
+      background-size: 100vw auto; } }
+  @media screen and (orientation: portrait) {
+    body {
+      background-size: auto 100vh; } }
 
 .btn {
   width: 100%;
@@ -418,19 +433,20 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: #250c00 0.1rem solid;
+  border: #2c0e00 0.1rem solid;
   border-radius: 0.5rem;
-  box-shadow: 0 0.1rem 0.2rem #250c00; }
+  box-shadow: 0 0.1rem 0.2rem #2c0e00; }
   .btn:active {
     transform: translateY(0.2rem);
-    box-shadow: 0 0 0 #250c00; }
+    box-shadow: 0 0 0 #2c0e00; }
   .btn--text {
     font-family: "Inconsolata", monospace;
     font-size: 5rem;
-    pointer-events: none; }
+    pointer-events: none;
+    user-select: none; }
 
 .calc {
-  border: #250c00 0.1rem solid;
+  border: #2c0e00 0.1rem solid;
   border-radius: 0.15rem;
   position: absolute;
   top: 50%;
@@ -445,25 +461,25 @@ html {
   padding: 1.5rem;
   align-content: center;
   justify-content: center;
-  grid-template-areas: "screen screen screen screen" "clear undo negative divide" "seven eight nine multiply" "four five six subtract" "one two three add" "zero zero decimal equals"; }
+  grid-template-areas: "screen screen screen screen" "clear undo negative divide" "seven eight nine multiply" "four five six subtract" "one two three add" "zero zero decimal equals";
+  box-shadow: 0 0 1.5rem rgba(27, 27, 27, 0.2); }
   .calc__screen {
     grid-area: screen;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    background-color: #250c00;
+    background-color: #2c0e00;
     font-family: "alarm_clockregular";
-    color: #436400; }
-    .calc__screen--previous {
-      padding-top: 2.5rem; }
-      .calc__screen--previousText {
-        text-align: left;
-        font-size: 2rem; }
+    color: #436400;
+    padding: 2rem; }
+    .calc__screen--previousText {
+      text-align: left;
+      font-size: 2rem; }
     .calc__screen--currentText {
       font-size: 5rem;
       text-align: right; }
   .calc__function {
     background-color: #964747; }
   .calc__number {
-    background-color: #41418f; }
+    background-color: #535394; }
   .calc__operate {
     background-color: #a8a860; }
