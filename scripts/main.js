@@ -16,29 +16,29 @@ Vue.createApp({
     };
   },
   methods: {
-    addValue(e) {
+    addValue(event) {
       // Prevent multiple zeroes from start
-      if (!this.currentValue && e === 0) return;
+      if (!this.currentValue && event.target.value === 0) return;
       // Start a new equation if no operator has been selected
       if (!this.currentValue && !this.operator) this.oldValue = null;
       //add values to current number up to a certain length
-      if (this.currentValue.length < 14) this.currentValue = this.currentValue + e;
+      if (this.currentValue.length < 14) this.currentValue = this.currentValue + event.target.value;
     },
-    operate(e) {
+    operate(event) {
       //prevent operators when nothing entered
       if (!this.currentValue && !this.oldValue) console.log("woo");
       //store first numebr for equation and select operator
       else if (this.currentValue && !this.oldValue) {
         this.oldValue = this.currentValue;
         this.currentValue = "";
-        this.operator = e;
+        this.operator = event.target.value;
         //function for following an equal sign, when there's no current value
       } else if (this.oldValue && !this.currentValue) {
-        this.operator = e;
+        this.operator = event.target.value;
         //normal functioning - complete previous equation and prepare operator for next equation
       } else {
         this.equals();
-        this.operator = e;
+        this.operator = event.target.value;
       }
     },
     //method for completing equations and storing result and sum logs
